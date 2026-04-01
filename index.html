@@ -34,16 +34,16 @@
 
 <body>
 
-    <main class="container mx-auto text-center pt-4 w-11/12 space-y-4">
-        <h2 class="text-[#4ade80] font-bold text-4xl">Choose Your Trees</h2>
+    <main class="container mx-auto pt-4 w-11/12 space-y-4 pb-8">
+        <h2 class="text-[#4ade80] font-bold text-4xl text-center">Choose Your Trees</h2>
 
-        <div class="grid grid-cols-12 gap-8">
-            
+        <div class="grid grid-cols-12 gap-8 mx-auto">
+
             <!-- Categories -->
-            <div class="bg-red-100 col-span-3 space-y-3">
-                <h2 class="font-bold text-2xl">Categories</h2>
+            <div class="bg-white card card-body shadow-xl rounded-md col-span-3 space-y-3">
+                <h2 class="font-bold text-2xl text-center mx-auto">Categories</h2>
                 <div>
-                    <button id="allTreesBtn" class="btn btn-success w-full">All Trees</button>
+                    <button id="allTreesBtn" class="btn btn-success w-full mb-4">All Trees</button>
 
                     <!-- Categories Container -->
 
@@ -55,12 +55,26 @@
             </div>
 
             <!-- Trees -->
-            <div class="bg-yellow-100 col-span-6">
-                Trees
+            <div class="bg-white card card-body shadow-xl rounded-md col-span-6">
+                    <!-- Trees rendered -->
+
+                <div id="treesContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+
+                    <!-- dynamically append here -->
+                    
+                </div>
+                        <!-- Loading spinner -->
+
+                    <div id="loadingSpinner" class="h-[60vh] flex justify-center items-center hidden">
+
+                        <span class="loading loading-spinner text-success"></span>
+                    
+                    </div>
+
             </div>
 
             <!-- Cards -->
-            <div class="bg-green-100 col-span-3">
+            <div class="bg-white card card-body shadow-xl rounded-md col-span-3 text-center">
                 <h2 class="font-bold text-2xl">Cart</h2>
             </div>
 
@@ -68,7 +82,7 @@
 
     </main>
 
-
+    <!-- Linkage JS -->
     <script src="./script/index.js"></script>
 </body>
 
