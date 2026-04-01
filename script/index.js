@@ -31,18 +31,60 @@ async function loadCategories() {
         console.log(category);
         const btn = document.createElement("button");
         btn.className = "btn btn-outline w-full"
-        btn.textContent = category.category_name
+        btn.textContent = category.category_name;
+        btn.onclick = () => selectCategory(category.id, btn);
+
         categoriesContainer.appendChild(btn);
     });
 
 }
 
+async function selectCategory(categoryId, btn) {
+    console.log(categoryId, btn);
+    showLoading();
+    // update active button style
+
+    const allButtons = document.querySelectorAll("#categoriesContainer button, #allTreesBtn");
+    // console.log(allButtons);
+    allButtons.forEach(btn => {
+        btn.classList.remove("btn-primary");
+        btn.classList.add("btn-outline");
+    });
+
+    btn.classList.add("btn-primary");
+    btn.classList.remove("btn-outline");
+
+    const response = await fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
+    const data = await response.json();
+    console.log(data);
+    displayTrees(data.plants);
+
+}
+
+allTreesBtn.addEventListener("click", () => {
+    // update active button style
+
+    showLoading();
+    const allButtons = document.querySelectorAll("#categoriesContainer button, #allTreesBtn");
+    // console.log(allButtons);
+    allButtons.forEach(btn => {
+        btn.classList.remove("btn-primary");
+        btn.classList.add("btn-outline");
+    });
+
+    allTreesBtn.classList.add("btn-primary");
+    allTreesBtn.classList.remove("btn-outline");
+
+    loadTrees () 
+
+})
+
 async function loadTrees() {
-    showLoading ();
+    showLoading();
     const response = await fetch("https://openapi.programming-hero.com/api/plants")
     const data = await response.json();
-    hideLoading ()
-    displayTrees(data.plants)
+    hideLoading()
+    displayTrees(data.plants);
 }
 
 function displayTrees(trees) {
@@ -73,6 +115,7 @@ function displayTrees(trees) {
 
         treesContainer.appendChild(card);
     })
+    hideLoading()
 
 }
 

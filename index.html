@@ -42,8 +42,8 @@
             <!-- Categories -->
             <div class="bg-white card card-body shadow-xl rounded-md col-span-3 space-y-3">
                 <h2 class="font-bold text-2xl text-center mx-auto">Categories</h2>
-                <div>
-                    <button id="allTreesBtn" class="btn btn-success w-full mb-4">All Trees</button>
+                <div class="space-y-3 sticky top-8">
+                    <button id="allTreesBtn" class="btn btn-primary w-full mb-4">All Trees</button>
 
                     <!-- Categories Container -->
 
@@ -56,20 +56,20 @@
 
             <!-- Trees -->
             <div class="bg-white card card-body shadow-xl rounded-md col-span-6">
-                    <!-- Trees rendered -->
+                <!-- Trees rendered -->
 
                 <div id="treesContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-5">
 
                     <!-- dynamically append here -->
-                    
+
                 </div>
-                        <!-- Loading spinner -->
+                <!-- Loading spinner -->
 
-                    <div id="loadingSpinner" class="h-[60vh] flex justify-center items-center hidden">
+                <div id="loadingSpinner" class="h-[60vh] flex justify-center items-center hidden">
 
-                        <span class="loading loading-spinner text-success"></span>
-                    
-                    </div>
+                    <span class="loading loading-spinner text-success"></span>
+
+                </div>
 
             </div>
 
@@ -78,6 +78,25 @@
                 <h2 class="font-bold text-2xl">Cart</h2>
             </div>
 
+        </div>
+
+        <!-- product details modal -->
+
+        <div>
+            <!-- Open the modal using ID.showModal() method -->
+            
+            <dialog id="tree_details_modal" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <h3 class="text-lg font-bold">Hello!</h3>
+                    <p class="py-4">Press ESC key or click the button below to close</p>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
         </div>
 
     </main>
